@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Buff Currency Converter",
+  "version": "1.0",
+  "description": "Change the listing currency on 163.buff.com",
+  "permissions": ["alarms", "storage", "*://buff.163.com/*"],
+  "background": {
+    "scripts": ["src/background.js"]
+  },
+  "browser_action": {
+    "default_title": "Preferences",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://buff.163.com/*"],
+      "run_at": "document_idle",
+      "js": ["src/content.js"]
+    }
+  ]
+}
