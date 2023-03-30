@@ -9,7 +9,7 @@ _Based on the [chrome extension](https://github.com/realwakils/buffcurrency) by 
 ## Features ✅
 
 - Auto-convert RMB prices to user-selected currency
-- Multiple currency support with reliable conversion rates
+- 162+ currencies supported
 - Simple and clean currency selection popup
 - Daily conversion rate updates
 
