@@ -4,7 +4,7 @@
 
 BCC is a Firefox extension that allows users to automatically convert the listing currency on buff.163.com (buff163) to their preferred currency.
 
-_Based on the [chrome extension](https://github.com/realwakils/buffcurrency) by [realwakils](https://github.com/realwakils)._
+_Based on the [chrome extension](https://github.com/realwakils/buffcurrency) by [realwakils](https://github.com/realwakils) and [linnnus](https://github.com/linnnus)._
 
 ## Features ✅
 
@@ -14,7 +14,7 @@ _Based on the [chrome extension](https://github.com/realwakils/buffcurrency) by 
 - Daily conversion rate updates
 
 ## Installation
-You can get the latest version of the [Buff Currency Converter]() extension from the Firefox Add-ons Store.
+You can get the latest version of the [Buff Currency Converter](https://addons.mozilla.org/en-CA/firefox/addon/buff-currency-converter/) extension from the Firefox Add-ons Store.
 
 
 _Please note that this extension is currently only compatible with Firefox._
