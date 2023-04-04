@@ -23,7 +23,7 @@ _Please note that this extension is currently only compatible with Firefox._
 
 1. Click the extension icon in your browser toolbar
 2. Select your desired currency from the dropdown menu
-3. Visit or [buff.163.com](https://buff.163.com)
+3. Visit [buff.163.com](https://buff.163.com)
 4. Prices on the website will be automatically converted to your chosen currency
 
 ### Contributions
