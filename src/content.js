@@ -37,7 +37,6 @@ async function main() {
   });
 }
 
-// Convert currencies in the given element and its children
 function convertCurrencyInElement(element) {
   if (element.children) {
     for (let child of element.children) {
@@ -51,11 +50,36 @@ function convertCurrencyInElement(element) {
     element.textContent = element.textContent.replace(reg, (_match, matchGroup) => {
       const RMBPrice = Number.parseFloat(matchGroup);
       const convertedPrice = RMBPrice * cachedRates[cachedCurrency];
+
       const formattedCurrency = new Intl.NumberFormat(undefined, {
         style: "currency",
         currency: cachedCurrency,
       });
-      return formattedCurrency.format(convertedPrice);
+      const convertedPriceStr = formattedCurrency.format(convertedPrice);
+      const originalPriceStr = RMBPrice.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+
+      // Add OG price to market listings
+      const isMarketList = element.closest('.detail-tab-cont');
+      if (isMarketList) {
+        const priceElement = document.createElement('p');
+        priceElement.style.fontSize = '0.95em';
+        priceElement.style.color = 'gray';
+        priceElement.textContent = `(¥${originalPriceStr})`;
+        element.after(priceElement);
+      }
+
+      // Add smaller OG price to inspect page
+      const isInspectBottom = element.closest('.inspect-bottom');
+      if (isInspectBottom) {
+        const priceElement = document.createElement('p');
+        priceElement.style.fontSize = '1em';
+        priceElement.style.paddingTop = '0.5em';
+        priceElement.style.color = 'gray';
+        priceElement.textContent = `(¥${originalPriceStr})`;
+        element.after(priceElement);
+      }
+
+      return convertedPriceStr;
     });
   }
 }
