@@ -1,10 +1,10 @@
 # Changelog
 
-## 0.2
+## 1.1
 
-- Add original RMB list price underneath listings
+- Add original RMB list price on inspect page & underneath listings
 - Add exchange rate notice to popup
 
-## 0.1
+## 1.0
 
 - initial release
