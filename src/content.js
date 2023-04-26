@@ -43,7 +43,6 @@ function convertCurrencyInElement(element) {
       convertCurrencyInElement(child);
     }
   }
-
   // Find and convert RMB prices to the selected currency
   const reg = /¥ (\d+(.\d+)?)/gm;
   if (reg.test(element.textContent)) {
@@ -59,7 +58,14 @@ function convertCurrencyInElement(element) {
       const originalPriceStr = RMBPrice.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 
       // Add OG price to market listings
-      const isMarketList = element.closest('.detail-tab-cont');
+      const isMarketList = element.closest('.detail-tab-cont') && window.location.href.startsWith("https://buff.163.com/goods/");
+
+      // Add OG price to inventory listings
+      const isInventoryList = element.closest('.detail-tab-cont') && !window.location.href.startsWith("https://buff.163.com/goods/");
+
+      // Add smaller OG price to inspect page
+      const isInspectBottom = element.closest('.inspect-bottom');
+
       if (isMarketList) {
         const priceElement = document.createElement('p');
         priceElement.style.fontSize = '0.95em';
@@ -68,8 +74,17 @@ function convertCurrencyInElement(element) {
         element.after(priceElement);
       }
 
-      // Add smaller OG price to inspect page
-      const isInspectBottom = element.closest('.inspect-bottom');
+      if (isInventoryList) {
+        const priceElement = document.createElement('small');
+        priceElement.style.fontSize = '1em';
+        priceElement.style.paddingLeft = '0.5em';
+        priceElement.style.color = 'gray';
+        priceElement.textContent = `(¥${originalPriceStr})`;
+
+        const parentElement = element.parentElement;
+        parentElement.insertBefore(priceElement, element.nextSibling);
+      }
+
       if (isInspectBottom) {
         const priceElement = document.createElement('p');
         priceElement.style.fontSize = '1em';
