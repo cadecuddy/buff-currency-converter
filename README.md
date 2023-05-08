@@ -6,6 +6,8 @@ BCC is a Firefox extension that allows users to automatically convert the listin
 
 _Based on the [chrome extension](https://github.com/realwakils/buffcurrency) by [realwakils](https://github.com/realwakils) and [linnnus](https://github.com/linnnus)._
 
+_Checkout my other project [**casecalculator**](https://www.casecalculator.app/)_
+
 ## Features ✅
 
 - Auto-convert RMB prices to user-selected currency
